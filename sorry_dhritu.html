@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorry Dhriti</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white; /* Changed to white */
+            color: #2c3e50; /* Changed text color for contrast */
+            text-align: center;
+        }
+        .slide {
+            display: none;
+            padding: 20px;
+            border: 2px solid gold;
+            background-color: rgba(44, 62, 80, 0.8);
+            border-radius: 10px;
+            font-size: 24px; /* Increase font size */
+        }
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: gold;
+            padding: 20px;
+            border: 1px solid black;
+            z-index: 100;
+            color: black;
+            text-align: center;
+            border-radius: 10px;
+        }
+        button {
+            background-color: gold;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 20px; /* Increase button font size */
+        }
+        button:hover {
+            background-color: #f1c40f;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="background-music" autoplay loop>
+        <source src="your-music-file-url.mp3" type="audio/mpeg"> <!-- Replace with your audio file URL -->
+        Your browser does not support the audio tag.
+    </audio>
+
+    <div id="slide1" class="slide" style="background-color: lightblue; color: pink;">Hi Dhriti</div>
+    <div id="slide2" class="slide" style="background-color: #f6e58d;">I’m sorry maine tujhe galti se naak pe maar diya, it was not intentional I was just trying to push you 😃</div>
+    <div id="slide3" class="slide" style="background-color: #f6e58d;">
+        <strong>Taylor Swift core apology</strong><br>
+        Dhriti, I know I messed up – like, worse than a ‘Teardrops on My Guitar’ moment. But let’s not let this be our ‘Bad Blood’ era. I’m ready to ‘Shake It Off’ if you are! I promise I’ll stop being the ‘Anti-Hero’ of this friendship. Let's go back to being the ‘Fearless’ duo we always are!<br>
+        (ps: I used every drop of swiftie-ness I had)
+    </div>
+    <div id="slide4" class="slide" style="background-color: lightblue; color: #d5006d;"> <!-- Darker pink -->
+        Am I forgiven? (pls say yes, ye banane mei bohot mehnat lagi hai) and ps: if u say yes, there's a surprise for you!<br>
+        <div id="options">
+            <button onclick="answer('ya')">Ya</button>
+            <button onclick="answer('yes')">Yes</button>
+            <button onclick="answer('yeahhh')">YEAHHH MY NIGGER</button>
+            <button onclick="answer('oops')">Oops</button>
+        </div>
+    </div>
+    <div id="slide5" class="slide" style="background-color: lightblue; color: pink;">
+        I love you besto<br>
+        I love you besto<br>
+        I love you besto<br>
+        I love you besto<br>
+        I love you besto<br>
+        I love you besto<br>
+        I love you besto<br>
+        I love you besto<br>
+        I love you besto<br>
+        I love you besto
+    </div>
+
+    <div id="popup"></div>
+    <button onclick="nextSlide()">Next Slide</button> <!-- Button to change slide -->
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        slides[currentSlide].style.display = 'block';
+
+        function nextSlide() {
+            slides[currentSlide].style.display = 'none';
+            currentSlide++;
+            if (currentSlide < slides.length) {
+                slides[currentSlide].style.display = 'block';
+            } else {
+                currentSlide = 0; // Reset to the first slide
+                slides[currentSlide].style.display = 'block';
+            }
+        }
+
+        function answer(option) {
+            if (option === 'ya' || option === 'yes' || option === 'yeahhh') {
+                document.getElementById('popup').innerHTML = "You have won an Ishant will do or buy anything for you coupon (under 500, sorry gareeb hu!)";
+            } else {
+                document.getElementById('popup').innerHTML = "Oh no! Let’s try that again!";
+            }
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        window.onload = function() {
+            slides[currentSlide].style.display = 'block'; // Show the first slide
+        };
+    </script>
+
+</body>
+</html>
